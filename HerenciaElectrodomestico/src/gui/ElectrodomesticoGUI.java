@@ -34,55 +34,74 @@ public class ElectrodomesticoGUI {
         Object [] electrodomesticos ={"Valores por default", "Precio base y peso", "Ingresar valores individualmente", "Salir"}; 
         Object [] colores ={"blanco", "negro", "rojo", "azul", "gris"}; 
         
-        Object opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
+        Object opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",
+                JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
         
         do {
             if (opcion == "Valores por default"){
-                listaElectrodomesticos.add(new herenciaelectrodomestico.Electrodomestico());
-                JOptionPane.showMessageDialog(null, "Agregado a la lista de compras");
-                opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
+                
+                byDefault(listaElectrodomesticos);
+                opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",
+                        JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
                 
             } else if (opcion == "Precio base y peso") {
                                 
-                Object[] message = {
-                    "Precio base:", precioBase,
-                    "Peso:", peso,
-                };
-
-                int option = JOptionPane.showConfirmDialog(null, message, "Ingresa los datos", JOptionPane.OK_CANCEL_OPTION);
-                double double_precioBase =  Double.parseDouble(precioBase.getText());
-                double double_peso = Double.parseDouble(peso.getText());
+                basePrecio(listaElectrodomesticos);
+                opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",
+                        JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
                 
-                if (option == JOptionPane.OK_OPTION) {
-                    listaElectrodomesticos.add(new herenciaelectrodomestico.Electrodomestico(double_precioBase, double_peso));
-                    JOptionPane.showMessageDialog(null, "Agregado a la lista de compras");
-                } 
-                
-                opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
             } else if (opcion == "Ingresar valores individualmente") {
-                Object[] message = {
-                    "Precio base:", precioBase,
-                    "Peso:", peso,
-                    "Consumo energetico: \n(A, B, C, D, E, F)", consumoEnergetico,
-                    "Color: \n(blanco, negro, rojo, azul, gris)", color,
-                };
-
-                int option = JOptionPane.showConfirmDialog(null, message, "Ingresa los datos", JOptionPane.OK_CANCEL_OPTION);
                 
-                double double_precioBase =  Double.parseDouble(precioBase.getText());
-                double double_peso = Double.parseDouble(peso.getText());
-                char[] ch_consumo = (consumoEnergetico.toString()).toCharArray();
-                char ch_consumoEnergetico = ch_consumo[0];
-                String string_color = color.getText(); 
+                valoresIndividuales(listaElectrodomesticos);
+                opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",
+                        JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
                 
-                if (option == JOptionPane.OK_OPTION) {
-                    listaElectrodomesticos.add(new herenciaelectrodomestico.Electrodomestico(double_precioBase, double_peso, ch_consumoEnergetico, string_color));
-                    JOptionPane.showMessageDialog(null, "Agregado a la lista de compras");
-                } 
-                opcion = JOptionPane.showInputDialog(null,"Selecciona el tipo de pago", "Elegir",JOptionPane.QUESTION_MESSAGE,null,electrodomesticos, electrodomesticos[0]);
             }
             
         } while (opcion != "Salir");
+    }
+    
+    protected void byDefault(ArrayList<herenciaelectrodomestico.Electrodomestico> listaElectrodomesticos){
+        listaElectrodomesticos.add(new herenciaelectrodomestico.Electrodomestico());
+        JOptionPane.showMessageDialog(null, "Agregado a la lista de compras");
+    }
+    
+    protected void basePrecio(ArrayList<herenciaelectrodomestico.Electrodomestico> listaElectrodomesticos){
+        Object[] message = {
+            "Precio base:", precioBase,
+            "Peso:", peso,
+        };
+
+        int option = JOptionPane.showConfirmDialog(null, message, "Ingresa los datos", JOptionPane.OK_CANCEL_OPTION);
+        double double_precioBase =  Double.parseDouble(precioBase.getText());
+        double double_peso = Double.parseDouble(peso.getText());
+
+        if (option == JOptionPane.OK_OPTION) {
+            listaElectrodomesticos.add(new herenciaelectrodomestico.Electrodomestico(double_precioBase, double_peso));
+            JOptionPane.showMessageDialog(null, "Agregado a la lista de compras");
+        } 
+    }
+    
+    protected void valoresIndividuales(ArrayList<herenciaelectrodomestico.Electrodomestico> listaElectrodomesticos){
+        Object[] message = {
+            "Precio base:", precioBase,
+            "Peso:", peso,
+            "Consumo energetico: \n(A, B, C, D, E, F)", consumoEnergetico,
+            "Color: \n(blanco, negro, rojo, azul, gris)", color,
+        };
+
+        int option = JOptionPane.showConfirmDialog(null, message, "Ingresa los datos", JOptionPane.OK_CANCEL_OPTION);
+
+        double double_precioBase =  Double.parseDouble(precioBase.getText());
+        double double_peso = Double.parseDouble(peso.getText());
+        char[] ch_consumo = (consumoEnergetico.toString()).toCharArray();
+        char ch_consumoEnergetico = ch_consumo[0];
+        String string_color = color.getText(); 
+
+        if (option == JOptionPane.OK_OPTION) {
+            listaElectrodomesticos.add(new herenciaelectrodomestico.Electrodomestico(double_precioBase, double_peso, ch_consumoEnergetico, string_color));
+            JOptionPane.showMessageDialog(null, "Agregado a la lista de compras");
+        } 
     }
     
     //Costo por electrodoméstico
