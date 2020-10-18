@@ -5,12 +5,8 @@
  */
 package gui;
 
-import herenciaelectrodomestico.Electrodomestico;
-import herenciaelectrodomestico.Lavadora;
-import herenciaelectrodomestico.Television;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -18,7 +14,7 @@ import javax.swing.JTextField;
  */
 public class MenuInicial {
     
-    ArrayList<herenciaelectrodomestico.Electrodomestico> listaElectrodomesticos = new ArrayList<herenciaelectrodomestico.Electrodomestico>();
+    ArrayList<herenciaelectrodomestico.Electrodomestico> listaElectrodomesticos = new ArrayList<>();
     
     //Menú para seleccionar que electrodoméstico quiero comprar, método público para que se vea en el Main
     public void menu (){
