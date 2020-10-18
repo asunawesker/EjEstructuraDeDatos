@@ -65,24 +65,15 @@ public class Formulario {
         apellidos.setText("Apellidos");        
         edad.setText("Edad");
         boton1.setText("Aceptar");
-        boton1.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                String id = text1.getText();
-                String nombre = text2.getText();
-                String apellidos = text3.getText();
-                String edad = text4.getText();
-                
-                int idInt=Integer.parseInt(id);
-                int edadInt=Integer.parseInt(edad);
-                
-                integrantes.add(new SeleccionFutbol(idInt, nombre, apellidos, edadInt));
-                
-                JOptionPane.showMessageDialog(null, "Integrante de la selección agregado");
-            }
-
+        boton1.addActionListener((ActionEvent e) -> {
+            String id1 = text1.getText();
+            String nombre1 = text2.getText();
+            String apellidos1 = text3.getText();
+            String edad1 = text4.getText();
+            int idInt = Integer.parseInt(id1);
+            int edadInt = Integer.parseInt(edad1);
+            integrantes.add(new SeleccionFutbol(idInt, nombre1, apellidos1, edadInt));
+            JOptionPane.showMessageDialog(null, "Integrante agregado");
         });
     }
  

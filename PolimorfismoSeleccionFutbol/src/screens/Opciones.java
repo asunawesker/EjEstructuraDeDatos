@@ -5,18 +5,24 @@ package screens;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.event.*;
-import static screens.Home.integrantes;
+import polimorfismo.SeleccionFutbol;
 /**
  *
  * @author asunawesker
  */
-public class Opciones extends JFrame implements ChangeListener{
+public class Opciones extends JFrame {
     private JRadioButton entrenador, futbolista, masajista, general;
     private ButtonGroup bg;
+    public ArrayList<SeleccionFutbol> integrantes = new ArrayList<>();
     
-    public Opciones() {
+    public Opciones(ArrayList<SeleccionFutbol> integrantes) {
+        
+        this.integrantes = integrantes;
         
         setLayout(null);
         
@@ -24,44 +30,35 @@ public class Opciones extends JFrame implements ChangeListener{
         
         general=new JRadioButton("General");
         general.setBounds(10,20,100,30);
-        general.addChangeListener(this);
+        general.addActionListener((ActionEvent e) -> {
+            Formulario form = new Formulario(integrantes);                       
+        });
         add(general);
         bg.add(general);
         
         entrenador=new JRadioButton("Entrenador");
         entrenador.setBounds(10,70,100,30);
-        entrenador.addChangeListener(this);
+        entrenador.addActionListener((ActionEvent e) -> {
+            FormularioEntrenador formEntrenador = new FormularioEntrenador(integrantes);
+        });
         add(entrenador);
         bg.add(entrenador);
         
         futbolista=new JRadioButton("Futbolista");
-        futbolista.setBounds(10,120,100,30);
-        futbolista.addChangeListener(this);        
+        futbolista.setBounds(10,120,100,30);    
+        futbolista.addActionListener((ActionEvent e) -> {
+            FormularioFutbolista formFutbolista = new FormularioFutbolista(integrantes);
+        });
         add(futbolista);
         bg.add(futbolista);
         
         masajista=new JRadioButton("Masajista");
-        masajista.setBounds(10,170,100,30);
-        masajista.addChangeListener(this);        
+        masajista.setBounds(10,170,100,30);  
+        masajista.addActionListener((ActionEvent e) -> {
+            FormularioMasajista formMasajista = new FormularioMasajista(integrantes);
+        });
         add(masajista);
         bg.add(masajista);  
     }
 
-    @Override
-    public void stateChanged(ChangeEvent e) {
-        if (general.isSelected()) {
-            Formulario fSF;
-            fSF = new Formulario(integrantes);
-        }
-        if (entrenador.isSelected()) {
-            FormularioEntrenador fE;
-            fE = new FormularioEntrenador(integrantes);
-        }
-        if (futbolista.isSelected()) {
-            
-        }
-        if (masajista.isSelected()) {
-            setSize(1024,768);
-        } 
-    }
 }

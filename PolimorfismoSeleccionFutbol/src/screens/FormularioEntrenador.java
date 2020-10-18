@@ -81,40 +81,36 @@ public class FormularioEntrenador{
         edad.setText("Edad");
         idFederacion.setText("ID Federación");
         boton1.setText("Aceptar");
-        boton1.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                String id = text1.getText();
-                String nombre = text2.getText();
-                String apellidos = text3.getText();
-                String edad = text4.getText();
-                String idFederacion = text5.getText();
-                
-                int idInt=Integer.parseInt(id);
-                int edadInt=Integer.parseInt(edad);
-                
-                integrantes.add(new Entrenador(idInt, nombre, apellidos, edadInt, idFederacion));
-                
-                JOptionPane.showMessageDialog(null, "Entrenador agreagado");
-            }
-
+        boton1.addActionListener((ActionEvent e) -> {
+            String id1 = text1.getText();
+            String nombre1 = text2.getText();
+            String apellidos1 = text3.getText();
+            String edad1 = text4.getText();
+            String idFederacion1 = text5.getText();
+            
+            int idInt = Integer.parseInt(id1);
+            int edadInt = Integer.parseInt(edad1);
+            
+            integrantes.add(new Entrenador(idInt, nombre1, apellidos1, edadInt, idFederacion1));
+            
+            JOptionPane.showMessageDialog(null, "Entrenador agreagado");
         });
     }
  
     private void addElements() {
-        paneliz.setLayout(new GridLayout(4,0));
+        paneliz.setLayout(new GridLayout(5,0));
         paneliz.add(id);
         paneliz.add(nombre);
         paneliz.add(apellidos);        
         paneliz.add(edad);
+        paneliz.add(idFederacion);
          
-        panelde.setLayout(new GridLayout(4,0));
+        panelde.setLayout(new GridLayout(5,0));
         panelde.add(text1);
         panelde.add(text2);
         panelde.add(text3);
         panelde.add(text4);
+        panelde.add(text5);
          
         panelar.setLayout(new GridLayout(1,1));
         panelar.setPreferredSize(new Dimension(250,100));

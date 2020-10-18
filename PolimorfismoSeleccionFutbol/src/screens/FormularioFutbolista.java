@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import polimorfismo.Entrenador;
+import polimorfismo.Futbolista;
 import polimorfismo.SeleccionFutbol;
 
 /**
@@ -27,8 +28,8 @@ import polimorfismo.SeleccionFutbol;
 public class FormularioFutbolista {
     JFrame frame;
     JPanel paneliz,panelde,panelab,panelar,panelex;
-    JLabel nombre,apellidos,id,edad, idFederacion;
-    JTextField text1,text2,text3,text4, text5;
+    JLabel nombre,apellidos,id,edad, dorsal, demarcacion;
+    JTextField text1,text2,text3,text4, text5, text6;
     JButton boton1;
     private ArrayList<SeleccionFutbol> integrantes;
     
@@ -48,13 +49,15 @@ public class FormularioFutbolista {
         nombre = new JLabel();
         apellidos = new JLabel();
         id = new JLabel();
-        edad = new JLabel();
-        idFederacion = new JLabel();
+        edad = new JLabel();        
+        dorsal = new JLabel();
+        demarcacion = new JLabel();
         text1 = new JTextField();
         text2 = new JTextField();
         text3 = new JTextField();
         text4 = new JTextField();
         text5 = new JTextField();
+        text6 = new JTextField();
         boton1 = new JButton();
     }
     
@@ -78,42 +81,44 @@ public class FormularioFutbolista {
         nombre.setText("Nombre");
         apellidos.setText("Apellidos");        
         edad.setText("Edad");
-        idFederacion.setText("ID Federación");
+        dorsal.setText("Dorsal");
+        demarcacion.setText("Posición");
         boton1.setText("Aceptar");
-        boton1.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                
-                String id = text1.getText();
-                String nombre = text2.getText();
-                String apellidos = text3.getText();
-                String edad = text4.getText();
-                String idFederacion = text5.getText();
-                
-                int idInt=Integer.parseInt(id);
-                int edadInt=Integer.parseInt(edad);
-                
-                integrantes.add(new Entrenador(idInt, nombre, apellidos, edadInt, idFederacion));
-                
-                JOptionPane.showMessageDialog(null, "Entrenador agreagado");
-            }
-
+        
+        boton1.addActionListener((ActionEvent e) -> {
+            String id1 = text1.getText();
+            String nombre1 = text2.getText();
+            String apellidos1 = text3.getText();
+            String edad1 = text4.getText();
+            String dorsal = text5.getText();
+            String demarcacion = text6.getText();
+            
+            int idInt = Integer.parseInt(id1);
+            int edadInt = Integer.parseInt(edad1);
+            int dorsalInt = Integer.parseInt(dorsal);
+            
+            integrantes.add(new Futbolista(idInt, nombre1, apellidos1, edadInt, dorsalInt,demarcacion));
+            
+            JOptionPane.showMessageDialog(null, "Futbolista agreagado");
         });
     }
  
     private void addElements() {
-        paneliz.setLayout(new GridLayout(4,0));
+        paneliz.setLayout(new GridLayout(6,0));
         paneliz.add(id);
         paneliz.add(nombre);
         paneliz.add(apellidos);        
         paneliz.add(edad);
+        paneliz.add(dorsal);
+        paneliz.add(demarcacion);
          
-        panelde.setLayout(new GridLayout(4,0));
+        panelde.setLayout(new GridLayout(6,0));
         panelde.add(text1);
         panelde.add(text2);
         panelde.add(text3);
         panelde.add(text4);
+        panelde.add(text5);
+        panelde.add(text6);
          
         panelar.setLayout(new GridLayout(1,1));
         panelar.setPreferredSize(new Dimension(250,100));
