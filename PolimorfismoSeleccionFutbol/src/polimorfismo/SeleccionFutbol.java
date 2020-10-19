@@ -9,7 +9,7 @@ package polimorfismo;
  *
  * @author asunawesker
  */
-public class SeleccionFutbol {
+public abstract class SeleccionFutbol {
     protected int id;
     protected String nombre;
     protected String apellidos;
@@ -58,15 +58,22 @@ public class SeleccionFutbol {
         this.edad = edad;
     }
     
+    public void viajar() {
+	     System.out.println("Viajar (Clase Padre)");
+    }
+
     public void concentrarse() {
-        System.out.println("Me estoy concentrando");
+         System.out.println("Concentrarse (Clase Padre)");
     }
-    
-    public void viajar(){
-        System.out.println("Estoy viajando");
+
+    // IMPORTANTE -> METODO ABSTRACTO => no se implementa en la clase abstracta pero si en la clases hijas
+    public abstract void entrenamiento();
+
+    public void partidoFutbol() {
+         System.out.println("Asiste al Partido de Fútbol (Clase Padre)");
     }
-    
-    public String datos(){
-        return nombre + " " + apellidos;
+
+    public String datos() {
+        return "Nombre: " + nombre + "\nApellido: " + apellidos;
     }
 }

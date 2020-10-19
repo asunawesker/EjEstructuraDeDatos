@@ -72,7 +72,12 @@ public class Formulario {
             String edad1 = text4.getText();
             int idInt = Integer.parseInt(id1);
             int edadInt = Integer.parseInt(edad1);
-            integrantes.add(new SeleccionFutbol(idInt, nombre1, apellidos1, edadInt));
+            integrantes.add(new SeleccionFutbol(idInt, nombre1, apellidos1, edadInt) {
+                @Override
+                public void entrenamiento() {
+                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                }
+            });
             JOptionPane.showMessageDialog(null, "Integrante agregado");
         });
     }

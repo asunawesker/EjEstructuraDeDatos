@@ -40,11 +40,17 @@ public class Futbolista extends SeleccionFutbol {
         this.demarcacion = demarcacion;
     }
     
-    public void jugarPartido(){
-        System.out.println("Juego un partido de fútbol");
-    }
-    
-    public void entrenar(){
-        System.out.println("Estoy entrenando");
-    }
+    @Override
+   public void entrenamiento() {
+      System.out.println("Realiza un entrenamiento (Clase Futbolista)");
+   }
+
+   @Override
+   public void partidoFutbol() {
+      System.out.println("Juega un Partido (Clase Futbolista)");
+   }
+
+   public void entrevista() {
+      System.out.println("Da una Entrevista");
+   }
 }

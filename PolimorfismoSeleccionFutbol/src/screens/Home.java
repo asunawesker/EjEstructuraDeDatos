@@ -93,7 +93,7 @@ public class Home extends JFrame implements ActionListener{
             if (e.getSource() == menuSFVer) {
                                 
                 for(SeleccionFutbol integrante: integrantes){
-                   integrante.datos();
+                    System.out.println(integrante.datos());
                 }
                 
                 
