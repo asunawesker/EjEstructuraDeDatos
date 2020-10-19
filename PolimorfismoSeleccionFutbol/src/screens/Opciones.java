@@ -6,17 +6,17 @@ package screens;
  * and open the template in the editor.
  */
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.event.*;
 import polimorfismo.SeleccionFutbol;
 /**
  *
  * @author asunawesker
  */
 public class Opciones extends JFrame {
-    private JRadioButton entrenador, futbolista, masajista, general;
+
+    private final JRadioButton entrenador;
+    private JRadioButton futbolista, masajista, general;
     private ButtonGroup bg;
     public ArrayList<SeleccionFutbol> integrantes = new ArrayList<>();
     

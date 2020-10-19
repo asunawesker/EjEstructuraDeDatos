@@ -95,7 +95,7 @@ public class FormularioMasajista {
                 String apellidos = text3.getText();
                 String edad = text4.getText();
                 String titulacion = text5.getText();
-                String añosExperiencia = text5.getText();
+                String añosExperiencia = text6.getText();
                 
                 int idInt=Integer.parseInt(id);
                 int edadInt=Integer.parseInt(edad);

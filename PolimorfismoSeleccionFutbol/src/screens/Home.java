@@ -8,7 +8,9 @@ package screens;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+import polimorfismo.Entrenador;
+import polimorfismo.Futbolista;
+import polimorfismo.Masajista;
 import polimorfismo.SeleccionFutbol;
 
 public class Home extends JFrame implements ActionListener{
@@ -102,19 +104,34 @@ public class Home extends JFrame implements ActionListener{
         
         private void actionsEntrenador(ActionEvent e) {
             if (e.getSource() == menuEVer) {
-                JOptionPane.showMessageDialog(null, "Entrenador Concentrar");
+                for(int i = 0; i<integrantes.size();i++){
+                    if (integrantes.get(i) instanceof Entrenador){
+                        System.out.println("Entrenador "+integrantes.get(i).getId());
+                        System.out.println(integrantes.get(i).datos());                        
+                    }
+                }
             }
         }
         
         private void actionsFutbolista(ActionEvent e) {
             if (e.getSource() == menuFVer) {
-                JOptionPane.showMessageDialog(null, "Futbolista Concentrar");
+                for(int i = 0; i<integrantes.size();i++){
+                    if (integrantes.get(i) instanceof Futbolista){
+                        System.out.println("Entrenador "+integrantes.get(i).getId());
+                        System.out.println(integrantes.get(i).datos());                        
+                    }
+                }
             }
         }
         
         private void actionsMasajista(ActionEvent e){            
             if (e.getSource() == menuMVer) {
-                JOptionPane.showMessageDialog(null, "Masajista Concentrar");
+                for(int i = 0; i<integrantes.size();i++){
+                    if (integrantes.get(i) instanceof Masajista){
+                        System.out.println("Entrenador "+integrantes.get(i).getId());
+                        System.out.println(integrantes.get(i).datos());                        
+                    }
+                }
             }
         }
 }
