@@ -66,7 +66,7 @@ public class SeleccionFutbol {
         System.out.println("Estoy viajando");
     }
     
-    public void datos(){
-        System.out.println(nombre + " " + apellidos);
+    public String datos(){
+        return nombre + " " + apellidos;
     }
 }

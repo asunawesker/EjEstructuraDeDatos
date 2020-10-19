@@ -5,7 +5,9 @@
  */
 package polimorfismofiguras;
 
+import gui.GUI;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,6 +19,7 @@ public class Main {
     
     public static void main(String[] args) {
         
+        /**
         Circulo circulo = new Circulo(5);
         Rectangulo rectangulo = new Rectangulo(20, (float) 12.5);
         PoligonoRegular poligono = new PoligonoRegular(32, 28, 5);
@@ -34,5 +37,12 @@ public class Main {
         for (FiguraGeometrica figura : figuras){
             System.out.println(figura.nombre() + " " + figura.area());
         }
+        **/
+        
+        GUI interfaz = new GUI();
+        interfaz.setBounds(0,0,350,230);
+        interfaz.setVisible(true);
+        interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
     }
 }

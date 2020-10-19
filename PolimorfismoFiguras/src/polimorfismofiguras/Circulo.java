@@ -17,6 +17,10 @@ public class Circulo extends FiguraGeometrica{
         this.radio = radio;
     }
 
+    public Circulo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public float getRadio() {
         return radio;
     }

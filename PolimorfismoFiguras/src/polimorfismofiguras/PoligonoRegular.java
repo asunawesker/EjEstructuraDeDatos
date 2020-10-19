@@ -61,13 +61,12 @@ public class PoligonoRegular extends FiguraGeometrica{
         
     @Override
     public float perimetro() {
-        perimetro = lado * numeroLados;
-        return perimetro;
+        return lado * numeroLados;
     }
 
     @Override
     public float area() {
-        return ((perimetro * apotema)/2);
+        return (((lado * numeroLados) * apotema)/2);
     }
     
 }

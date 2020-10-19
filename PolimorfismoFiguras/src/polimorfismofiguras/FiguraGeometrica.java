@@ -9,18 +9,12 @@ package polimorfismofiguras;
  *
  * @author asunawesker
  */
-public class FiguraGeometrica {
+public abstract class FiguraGeometrica {
     
-    public String nombre(){
-        return "";
-    }
+    abstract String nombre();
            
-    public float perimetro(){
-        return 0;
-    };
+    abstract float perimetro();
     
-    public float area(){
-        return 0;
-    };
+    abstract float area();
     
 }
