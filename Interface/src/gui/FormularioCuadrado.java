@@ -1,11 +1,9 @@
-package gui;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package gui;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -18,21 +16,20 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import polimorfismofiguras.PR_MasCincoLados;
-import polimorfismofiguras.PoligonoRegular;
+import polimorfismofiguras.Cuadrado;
 
 /**
  *
  * @author asunawesker
  */
-public class FormularioPoligono {
+public class FormularioCuadrado {
     Frame frame;
     JPanel paneliz,panelde,panelab,panelar,panelex;
-    JLabel lado, apotema, noLados;
-    JTextField text1,text2,text3;
+    JLabel lado;
+    JTextField text1;
     JButton boton1;
     
-    public FormularioPoligono(){
+    public FormularioCuadrado(){
         initializeElements();
         inituializeMethods();
     }
@@ -45,11 +42,7 @@ public class FormularioPoligono {
         panelar  = new JPanel();
         panelex = new JPanel();
         lado = new JLabel();
-        apotema = new JLabel();
-        noLados = new JLabel();
         text1 = new JTextField();
-        text2 = new JTextField();
-        text3 = new JTextField();
         boton1 = new JButton();
     }
     
@@ -70,21 +63,15 @@ public class FormularioPoligono {
     
     private void addText() {
         lado.setText("Medida lado: ");
-        apotema.setText("Apotema: ");
-        noLados.setText("No. Lados");
         boton1.setText("Aceptar");
         boton1.addActionListener((ActionEvent e) -> {
             String lado = text1.getText();
-            String apotema = text1.getText();
-            String lados = text1.getText();
 
             float ladoFloat = (float) Double.parseDouble(lado);
-            float apotemaFloat = (float) Double.parseDouble(apotema);
-            int ladosInt = Integer.parseInt(lados);
 
-            PR_MasCincoLados poligono = new PR_MasCincoLados(ladoFloat, ladosInt, apotemaFloat);
+            Cuadrado cuadrado = new Cuadrado(ladoFloat);
             
-            String message = "Área: " + poligono.area() + "\nPerímetro: " + poligono.perimetro();
+            String message = "Área: " + cuadrado.area() + "\nPerímetro: " + cuadrado.perimetro();
             
             JOptionPane.showMessageDialog(null, message);
         });
@@ -93,13 +80,9 @@ public class FormularioPoligono {
     private void addElements() {
         paneliz.setLayout(new GridLayout(3,0));
         paneliz.add(lado);
-        paneliz.add(apotema);
-        paneliz.add(noLados);
          
         panelde.setLayout(new GridLayout(3,0));
         panelde.add(text1);
-        panelde.add(text2);
-        panelde.add(text3);
          
         panelar.setLayout(new GridLayout(1,1));
         panelar.setPreferredSize(new Dimension(100,75));

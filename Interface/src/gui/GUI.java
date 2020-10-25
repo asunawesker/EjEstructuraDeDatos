@@ -1,8 +1,5 @@
 package gui;
 
-
-
-
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
@@ -51,7 +48,9 @@ public class GUI extends JFrame{
         poligonoRegular=new JRadioButton("Poligono regular");
         poligonoRegular.setBounds(10,120,200,30);    
         poligonoRegular.addActionListener((ActionEvent e) -> {
-            FormularioPoligono poligono = new FormularioPoligono();
+            Opciones_poligonos opciones = new Opciones_poligonos();
+            opciones.setBounds(0,0,350,230);
+            opciones.setVisible(true);
         });
         add(poligonoRegular);
         bg.add(poligonoRegular);
