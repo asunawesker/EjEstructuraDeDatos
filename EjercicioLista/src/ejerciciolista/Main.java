@@ -5,6 +5,7 @@
  */
 package ejerciciolista;
 
+import gui.Table;
 import java.util.Random;
 
 /**
@@ -18,6 +19,11 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Table table = new Table();
+        table.setVisible(true);
+        
+        /*
         int randomProduct;        
         LinkedListProducto list = new LinkedListProducto();
         
@@ -33,6 +39,7 @@ public class Main {
         
         list.printLinkedListHeadToTail();
         System.out.println("Precio final: " + list.totalCost());
+        */
         
     }
     

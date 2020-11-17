@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class Producto {
     
-    String nombre;
-    int cantidad, precio, count, total;
+    public String nombre;
+    public int cantidad, precio, count, total;
     private Random random;
     
     public Producto() {

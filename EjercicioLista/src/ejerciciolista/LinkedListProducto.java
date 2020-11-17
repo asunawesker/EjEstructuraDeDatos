@@ -84,6 +84,22 @@ public class LinkedListProducto{
         temp.setNext(temp.getNext().getNext());
     }
     
+    public Node deleteAll(LinkedListProducto list) {
+        if (size == 0) 
+            throw new RuntimeException("Lista vacía");
+        
+        Node temp = head;
+        
+        for (int i=0; i<list.size; i++){
+            head = head.getNext();
+            head.setPrev(null); 
+
+            size--;
+        }
+                
+        return temp;
+    }
+    
     public void printLinkedListHeadToTail() {
         System.out.println("Desde inicio a fin");
         Node current = head;
@@ -113,6 +129,25 @@ public class LinkedListProducto{
         }
         
         System.out.println();
+    }
+    
+    public Object[][] matrix(LinkedListProducto list) {
+        int i = 0;
+        Object matriz [][] = new Object [list.size][4];
+        Node current = head;
+        
+        while(current != null){
+            matriz[i][0] = current.getData().nombre;
+            matriz[i][1] = current.getData().cantidad;
+            matriz[i][2] = current.getData().precio;
+            matriz[i][3] = current.getData().total;
+            
+            current = current.getNext();
+            
+            i++;
+        }
+        
+        return matriz;
     }
     
     public int totalCost(){
