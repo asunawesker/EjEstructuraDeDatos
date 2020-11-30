@@ -11,7 +11,7 @@ import java.util.Random;
 import ejcola.QueueList;
 /**
  *
- * @author iragu
+ * @author asunawesker
  */
 public class Table extends javax.swing.JFrame {
     

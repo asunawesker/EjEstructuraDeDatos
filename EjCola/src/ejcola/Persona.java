@@ -7,7 +7,7 @@ package ejcola;
 
 /**
  *
- * @author iragu
+ * @author asunawesker
  */
 public class Persona {
     private int edad;

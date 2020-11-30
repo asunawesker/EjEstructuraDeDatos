@@ -7,7 +7,7 @@ package ejcola;
 
 /**
  *
- * @author adolfoparada
+ * @author asunawesker
  */
 public class QueueList <T> {
 
