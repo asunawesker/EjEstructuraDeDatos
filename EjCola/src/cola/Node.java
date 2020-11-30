@@ -1,4 +1,4 @@
-package ejcola;
+package cola;
 
 /**
  *
@@ -13,8 +13,7 @@ public class Node <T> {
         setLink(null);
     }
 
-    public Node(T data)
-    {
+    public Node(T data){
       setData(data);
       setLink(null);
     }

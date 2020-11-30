@@ -5,10 +5,10 @@
  */
 package gui;
 
-import ejcola.Node;
+import cola.Node;
 import ejcola.Persona;
 import java.util.Random;
-import ejcola.QueueList;
+import cola.QueueList;
 /**
  *
  * @author asunawesker
