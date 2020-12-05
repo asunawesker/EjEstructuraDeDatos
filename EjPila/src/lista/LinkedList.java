@@ -10,7 +10,8 @@ package lista;
  * @author iragu
  */
 public class LinkedList <T> {
-    private  Node head;
+    private Node head;
+    private Node tail;
     private int size; 
 
     public LinkedList(){
@@ -34,18 +35,55 @@ public class LinkedList <T> {
         this.size = size;
     }
 
-    public void add(int data) {
+    public void addHead(int data) {
+        Node node = new Node(data);
+        
+        node.setNextNode(head);
+        node.setPrevNode(null);
+        
+        if(head!=null)
+            head.setPrevNode(node);
+        head = node;
+        if(tail==null)
+            tail=node;
+        size++;     
+    }
+    
+    public void addTail(int data) {
         Node node = new Node(data);
         if (head == null) {
             head = node;
         } else {
             Node currentNode = head;
-            while(currentNode.nextNode != null) {
-                currentNode = currentNode.nextNode;
+            while(currentNode.getNextNode() != null) {
+                currentNode = currentNode.getNextNode();
             }
-            currentNode.nextNode = node;
+            currentNode.setNextNode(node);
         }
-        size++;     
+        size++;
+    }
+    
+    public Node deleteFirst() {
+        if (size == 0) 
+            throw new RuntimeException("Lista vacía");
+        
+        Node temp = head;
+        head = head.getNextNode();
+        head.setPrevNode(null); 
+        
+        size--;
+        
+        return temp;
+    }
+    
+    public Node deleteLast() {
+        Node temp = tail;
+        tail = tail.getPrevNode();
+        tail.setNextNode(null);
+        
+        size--;
+        
+        return temp;
     }
 
     public void sort() {
@@ -54,31 +92,31 @@ public class LinkedList <T> {
             while( wasChanged ) {
                 Node current = head;
                 Node previous = null;
-                Node next = head.nextNode;
+                Node next = head.getNextNode();
                 wasChanged = false;
                 while ( next != null ) {
-                    if ( current.data > next.data ) {
+                    if ( current.getData() > next.getData() ) {
                         wasChanged = true;
                         if ( previous != null ) {
-                            Node sig = next.nextNode;
+                            Node sig = next.getNextNode();
 
-                            previous.nextNode = next;
-                            next.nextNode = current;
-                            current.nextNode = sig;
+                            previous.setNextNode(next);
+                            next.setNextNode(current);
+                            current.setNextNode(sig);
                         } else {
-                            Node sig = next.nextNode;
+                            Node sig = next.getNextNode();
 
                             head = next;
-                            next.nextNode = current;
-                            current.nextNode = sig;
+                            next.setNextNode(current);
+                            current.setNextNode(sig);
                         }
 
                         previous = next;
-                        next = current.nextNode;
+                        next = current.getNextNode();
                     } else { 
                         previous = current;
                         current = next;
-                        next = next.nextNode;
+                        next = next.getNextNode();
                     }
                 } 
             } 
@@ -88,15 +126,32 @@ public class LinkedList <T> {
     public int listSize() {     
         return size;
     }
-
+    
+    public int search(int pos) {
+        int dato = 0;
+        int cont=0;
+        Node aux=head;
+        if (!isEmpty()) {
+            while(aux!=null){
+                if (pos == cont){
+                    dato = aux.getData();
+                }                
+                aux=aux.getNextNode();
+                cont++;
+            }
+        }    
+        return dato;
+    }
+    
     public void printData() {
         Node currentNode = head;
         while(currentNode != null) {
             int data = currentNode.getData();
             System.out.println(data);
-            currentNode = currentNode.nextNode;
+            currentNode = currentNode.getNextNode();
         }
     }
+
 
     public boolean isEmpty() {
         return size == 0;

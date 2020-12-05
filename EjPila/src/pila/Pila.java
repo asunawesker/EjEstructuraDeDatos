@@ -62,7 +62,6 @@ public class Pila <T> {
            }else{
             while(aux!=null){
                 if (pos == cont){
-                    //Devuelvo el dato, con esto salimos de la función
                     dato=aux.getDato();
                 }                
                 aux=aux.getLink();

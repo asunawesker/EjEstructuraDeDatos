@@ -11,8 +11,9 @@ package lista;
  */
 public class Node {
     
-    int data; 
-    Node nextNode;
+    private int data; 
+    private Node nextNode;
+    private Node prevNode;
 
     public Node(int data) {
         this.data = data;
@@ -26,5 +27,23 @@ public class Node {
     public Node getNextNode() {
         return nextNode;
     }
+
+    public Node getPrevNode() {
+        return prevNode;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public void setNextNode(Node nextNode) {
+        this.nextNode = nextNode;
+    }
+
+    public void setPrevNode(Node prevNode) {
+        this.prevNode = prevNode;
+    }
+    
+    
     
 }

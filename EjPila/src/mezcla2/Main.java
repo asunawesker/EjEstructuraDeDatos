@@ -53,14 +53,14 @@ public class Main {
         if (linkedLength > 0) {
             for (int i=0; i<linkedLength; i++){
                 numbers = random.nextInt(10);
-                linked .add(numbers);
+                linked .addTail(numbers);
             }
         } else {
             linkedLength = random.nextInt(10);
             
             for (int i=0; i<linkedLength; i++){
                 numbers = random.nextInt(10);
-                linked .add(numbers);
+                linked .addTail(numbers);
             }
         }
         
@@ -73,7 +73,7 @@ public class Main {
         currentNode = linked.getHead();
         while(currentNode != null) {
             int data = currentNode.getData();
-            mix.add(data);
+            mix.addTail(data);
             currentNode = currentNode.getNextNode();
         }
         
