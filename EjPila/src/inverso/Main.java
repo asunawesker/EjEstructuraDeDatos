@@ -17,6 +17,7 @@ public class Main {
         int numbers;
         int data;
         int count;
+        int number = 5;
         boolean condition;
         
         LinkedList list;
@@ -28,6 +29,8 @@ public class Main {
         random = new Random();
         listLength = random.nextInt(10);
         
+        System.out.println("Número a encontrar: " + number);
+        
         for (int i=0; i<listLength; i++){
             numbers = random.nextInt(10);
             list.addHead(numbers);
@@ -35,27 +38,27 @@ public class Main {
         
         System.out.println("Lista");
         for (int i=0; i<listLength; i++){
-            data = list.search(i);
+            data = (int) list.search(i);
             System.out.print(data + " ");
         }
         
-        condition = dataInList(5, list);
+        condition = dataInList(number, list);
         
         if (condition == true && listLength > 0) {
-            count = countToFind(5, list);
+            count = countToFind(number, list);
             for (int i=0; i<count; i++){
                 list.deleteFirst();
             }
             
-            System.out.println("\nLista datos eliminados");
+            System.out.println("\nLista inversa sin datos eliminados");
             listReverse = reverse(list, listReverse);
             
-            for (int i=0; i<listLength; i++){
-                data = listReverse.search(i);
+            for (int i=0; i<(listLength - count); i++){
+                data = (int) listReverse.search(i);
                 System.out.print(data + " ");
             }
         } else {
-            System.out.println("\nNúmero no encontrado");
+            System.out.println("\nNúmero no encontrado, por lo tanto lista no impresa");
         }
         
     }
@@ -65,7 +68,7 @@ public class Main {
         int data;
         
         for (int i=0; i<list.getSize(); i++){
-            data = list.search(i);
+            data = (int) list.search(i);
             if (number == data) {
                 condition = true;
                 break;
@@ -83,7 +86,7 @@ public class Main {
         boolean condition = true;
         
         while(condition){
-            data = list.search(i);
+            data = (int) list.search(i);
             if (number != data) {
                 count++;
                 i++;
@@ -101,7 +104,7 @@ public class Main {
         int data; 
         
         for (int i=0; i<list.getSize(); i++){
-            data = list.search(i);
+            data = (int) list.search(i);
             listReverse.addHead(data);
         }
         

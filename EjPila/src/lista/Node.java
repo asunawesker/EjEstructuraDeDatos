@@ -9,18 +9,18 @@ package lista;
  *
  * @author iragu
  */
-public class Node {
+public class Node <T> {
     
-    private int data; 
+    private T data; 
     private Node nextNode;
     private Node prevNode;
 
-    public Node(int data) {
+    public Node(T data) {
         this.data = data;
         this.nextNode = null;       
     }
 
-    public int getData() {
+    public T getData() {
         return this.data;
     }
 
@@ -32,7 +32,7 @@ public class Node {
         return prevNode;
     }
 
-    public void setData(int data) {
+    public void setData(T data) {
         this.data = data;
     }
 

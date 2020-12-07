@@ -49,7 +49,7 @@ public class LinkedList <T> {
         size++;     
     }
     
-    public void addTail(int data) {
+    public void addTail(T data) {
         Node node = new Node(data);
         if (head == null) {
             head = node;
@@ -95,7 +95,9 @@ public class LinkedList <T> {
                 Node next = head.getNextNode();
                 wasChanged = false;
                 while ( next != null ) {
-                    if ( current.getData() > next.getData() ) {
+                    int currentData = (int) current.getData();
+                    int nextData = (int) next.getData();
+                    if ( currentData > nextData ) {
                         wasChanged = true;
                         if ( previous != null ) {
                             Node sig = next.getNextNode();
@@ -127,14 +129,14 @@ public class LinkedList <T> {
         return size;
     }
     
-    public int search(int pos) {
-        int dato = 0;
+    public T search(int pos) {
+        T dato = null;
         int cont=0;
         Node aux=head;
         if (!isEmpty()) {
             while(aux!=null){
                 if (pos == cont){
-                    dato = aux.getData();
+                    dato = (T) aux.getData();
                 }                
                 aux=aux.getNextNode();
                 cont++;
@@ -146,7 +148,7 @@ public class LinkedList <T> {
     public void printData() {
         Node currentNode = head;
         while(currentNode != null) {
-            int data = currentNode.getData();
+            int data = (int) currentNode.getData();
             System.out.println(data);
             currentNode = currentNode.getNextNode();
         }

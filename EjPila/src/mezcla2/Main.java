@@ -72,7 +72,7 @@ public class Main {
         
         currentNode = linked.getHead();
         while(currentNode != null) {
-            int data = currentNode.getData();
+            int data = (int) currentNode.getData();
             mix.addTail(data);
             currentNode = currentNode.getNextNode();
         }
